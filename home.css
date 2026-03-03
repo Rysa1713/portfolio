@@ -1,0 +1,32 @@
+.home{
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap{
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.lanyardSection{
+  background: black;
+}
+
+.bookshelfSection{
+  background: black;
+}
+
+.scrollHint{
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.55);
+  letter-spacing: .18em;
+  font-size: 12px;
+  user-select: none;
+  pointer-events: none;
+}

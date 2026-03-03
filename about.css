@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=EB+Garamond:wght@600;700&display=swap');
+
+:root{
+  --bg: #07070b;
+  --ink: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.70);
+  --dim: rgba(255,255,255,.55);
+  --line: rgba(255,255,255,.12);
+
+  --radius: 999px;
+  --max: 1050px;
+
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+/* Page */
+.aboutPage{
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  padding: 56px 22px 86px;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.aboutBg{
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(900px 520px at 32% 18%, rgba(255,255,255,.085), transparent 62%),
+    radial-gradient(740px 460px at 78% 26%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(980px 560px at 50% 108%, rgba(255,255,255,.045), transparent 60%);
+  pointer-events: none;
+  opacity: .95;
+}
+
+/* grain */
+.aboutPage::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: .08;
+  pointer-events: none;
+}
+
+/*  Back button  */
+.aboutBack{
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.86);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+  margin-bottom: 22px;
+  backdrop-filter: blur(6px);
+}
+
+.aboutBack:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.055);
+  border-color: rgba(255,255,255,.22);
+}
+
+/*  Template Layout */
+.tWrap{
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-top: 18px;
+}
+
+.tTop{
+  max-width: 820px;
+}
+
+.tKicker{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--dim);
+  margin-bottom: 18px;
+}
+
+
+.tTitle{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: clamp(40px, 5.6vw, 74px);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+
+.tName{
+  font-family: "EB Garamond", serif;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 14px 50px rgba(255,255,255,.08);
+}
+
+
+.tSubtitle{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.45;
+  font-weight: 400;
+  color: rgba(255,255,255,.80);
+  margin: 0 0 22px;
+}
+
+
+.tStatement{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 18px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 640px;
+  margin: 0 0 18px;
+}
+
+
+.tSub{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 14.5px;
+  color: rgba(255,255,255,.52);
+  line-height: 1.8;
+  margin: 0;
+}
+
+
+.tMeta{
+  margin-top: 68px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 28px;
+  padding-top: 18px;
+}
+
+.tMetaItem{
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 14px;
+}
+
+.tMetaLabel{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.52);
+  margin-bottom: 10px;
+}
+
+.tMetaValue{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,.78);
+}
+
+.tDot{
+  display:inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.78);
+  margin-right: 10px;
+  transform: translateY(-1px);
+}
+
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.fadeUp{
+  opacity: 0;
+  animation: fadeUp .8s var(--ease) forwards;
+}
+
+
+@media (max-width: 900px){
+  .tMeta{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 46px;
+  }
+  .tTop{ max-width: 100%; }
+}
